@@ -73,17 +73,17 @@
 
             z-index: 1000;
 
-            background: rgba(6, 16, 23, 0.90);
+            background: rgba(6, 16, 23, 0.92);
             backdrop-filter: blur(14px);
 
             border-bottom: 1px solid var(--border-light);
         }
 
-        .nav-contner {
+        .nav-container {
             max-width: 1280px;
             margin: auto;
 
-            padding: 16px 30px;
+            padding: 14px 30px;
 
             display: flex;
             align-items: center;
@@ -121,7 +121,7 @@
             text-transform: uppercase;
         }
 
-        .brand-ai {
+        .brand-subtitle {
             color: var(--gold);
 
             font-size: 9px;
@@ -133,6 +133,7 @@
 
         .nav-links {
             display: flex;
+            align-items: center;
             gap: 30px;
 
             color: var(--muted);
@@ -171,61 +172,60 @@
 
             background-image:
                 linear-gradient(
-                   90deg,
-                    rgba(6, 16, 23, 0.88) 0%,
-                    rgba(6, 16, 23, 0.58) 28%,
-                    rgba(6, 16, 23, 0.10) 55%,
-                    rgba(6, 16, 23, 0.18) 100%
-            ),
-            linear-gradient(
-                0deg,
-                rgba(6, 16, 23, 0.75) 0%,
-                transparent 35%
-            ),
-            url("assets/unveiling-history-banner.png");
+                    90deg,
+                    rgba(6, 16, 23, 0.92) 0%,
+                    rgba(6, 16, 23, 0.62) 24%,
+                    rgba(6, 16, 23, 0.16) 52%,
+                    rgba(6, 16, 23, 0.12) 100%
+                ),
+                linear-gradient(
+                    0deg,
+                    rgba(6, 16, 23, 0.78) 0%,
+                    transparent 38%
+                ),
+                url("assets/unveiling-history-banner.png");
 
-        background-size: cover;
-        background-position: center;
-            
+            background-size: cover;
+            background-position: center;
         }
 
         .hero-container {
             width: 100%;
-            max-width: 1280px;
+            max-width: 1400px;
 
             margin: auto;
-            padding: 100px 30px 100px 70px;
+            padding: 100px 40px;
 
             position: relative;
             z-index: 2;
         }
 
         .hero-content {
-            max-width: 540px;
+            max-width: 460px;
             margin-left: 0;
         }
 
         .eyebrow {
             color: var(--gold-light);
 
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
 
             letter-spacing: 4px;
             text-transform: uppercase;
 
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
             font-family: Georgia, "Times New Roman", serif;
 
-            font-size: clamp(42px, 5.5vw, 68px);
+            font-size: clamp(40px, 4.5vw, 60px);
             font-weight: 500;
 
-            line-height: 0.98;
+            line-height: 1.02;
 
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
         .hero h1 span {
@@ -233,14 +233,14 @@
         }
 
         .hero-description {
-            max-width: 610px;
+            max-width: 460px;
 
             color: var(--text);
 
-            font-size: 19px;
-            line-height: 1.75;
+            font-size: 16px;
+            line-height: 1.7;
 
-            margin-bottom: 36px;
+            margin-bottom: 30px;
         }
 
         .hero-buttons {
@@ -627,8 +627,12 @@
                 background-position: 58% center;
             }
 
+            .hero-container {
+                padding: 90px 30px;
+            }
+
             .hero-content {
-                max-width: 600px;
+                max-width: 520px;
             }
 
             .purpose-layout {
@@ -657,6 +661,10 @@
                 padding: 14px 20px;
             }
 
+            .brand-name {
+                font-size: 13px;
+            }
+
             .hero {
                 padding-top: 65px;
             }
@@ -668,6 +676,18 @@
             .hero-image {
                 top: 65px;
                 background-position: 60% center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-description {
+                font-size: 15px;
             }
 
             section {
@@ -707,7 +727,7 @@
                         Unveiling History
                     </div>
 
-                    <div class="brand-ai">
+                    <div class="brand-subtitle">
                         HISTORY
                     </div>
 
