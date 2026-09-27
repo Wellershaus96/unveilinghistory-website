@@ -3,10 +3,829 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unveiling History</title>
+
+    <title>Unveiling History — History, uncovered.</title>
+
+    <meta
+        name="description"
+        content="Unveiling History creates and publishes educational history content, from books to short-form video."
+    >
+
+    <style>
+        :root {
+            --obsidian: #0B0B0B;
+            --stone: #2F2F2F;
+            --bronze: #A67C52;
+            --sand: #D9C9A8;
+            --ivory: #F5F1E6;
+            --muted: #AAA39A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background: var(--obsidian);
+            color: var(--ivory);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(11, 11, 11, 0.88);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(217, 201, 168, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1180px;
+            margin: auto;
+            padding: 20px 28px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--bronze);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .nav-links a {
+            transition: color 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--ivory);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 140px 28px 100px;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 75% 35%,
+                    rgba(166, 124, 82, 0.18),
+                    transparent 32%
+                ),
+                linear-gradient(
+                    135deg,
+                    #0B0B0B 0%,
+                    #11100E 55%,
+                    #181411 100%
+                );
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+
+            border: 1px solid rgba(166, 124, 82, 0.15);
+            border-radius: 50%;
+
+            right: -180px;
+            top: 120px;
+        }
+
+        .hero-container {
+            max-width: 1180px;
+            width: 100%;
+            margin: auto;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            color: var(--bronze);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 12px;
+            font-weight: 700;
+
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            max-width: 800px;
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(52px, 8vw, 96px);
+
+            line-height: 0.98;
+            font-weight: 500;
+
+            margin-bottom: 28px;
+        }
+
+        .hero h1 em {
+            color: var(--sand);
+            font-style: normal;
+        }
+
+        .hero-description {
+            max-width: 620px;
+
+            color: var(--muted);
+            font-size: 20px;
+            line-height: 1.7;
+
+            margin-bottom: 38px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 14px 24px;
+
+            border-radius: 4px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .button-primary {
+            background: var(--bronze);
+            color: var(--ivory);
+        }
+
+        .button-primary:hover {
+            transform: translateY(-2px);
+            background: #b88c5e;
+        }
+
+        .button-secondary {
+            border: 1px solid rgba(217, 201, 168, 0.25);
+            color: var(--sand);
+        }
+
+        .button-secondary:hover {
+            transform: translateY(-2px);
+            border-color: var(--sand);
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 110px 28px;
+        }
+
+        .section-container {
+            max-width: 1180px;
+            margin: auto;
+        }
+
+        .section-label {
+            color: var(--bronze);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(36px, 5vw, 58px);
+            font-weight: 500;
+            line-height: 1.1;
+
+            max-width: 760px;
+            margin-bottom: 25px;
+        }
+
+        .section-intro {
+            max-width: 700px;
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #10100F;
+        }
+
+        /* CARDS */
+
+        .cards {
+            margin-top: 60px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: rgba(47, 47, 47, 0.25);
+            border: 1px solid rgba(217, 201, 168, 0.10);
+
+            padding: 34px;
+
+            min-height: 260px;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(166, 124, 82, 0.5);
+        }
+
+        .card-number {
+            color: var(--bronze);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+
+            margin-bottom: 35px;
+        }
+
+        .card h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 27px;
+            font-weight: 500;
+
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* PROCESS */
+
+        .process {
+            background: var(--obsidian);
+        }
+
+        .process-grid {
+            margin-top: 60px;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .process-step {
+            border-top: 1px solid rgba(166, 124, 82, 0.4);
+            padding-top: 22px;
+        }
+
+        .process-step span {
+            color: var(--bronze);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .process-step h3 {
+            font-size: 20px;
+            margin: 15px 0 10px;
+        }
+
+        .process-step p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* CTA */
+
+        .cta {
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #181411,
+                    #0B0B0B
+                );
+
+            border-top: 1px solid rgba(217, 201, 168, 0.08);
+            border-bottom: 1px solid rgba(217, 201, 168, 0.08);
+        }
+
+        .cta .section-title {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 35px;
+
+            color: var(--muted);
+            font-size: 17px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 40px 28px;
+
+            background: #080808;
+        }
+
+        .footer-container {
+            max-width: 1180px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .footer-brand {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: var(--ivory);
+        }
+
+        /* ANIMATION */
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+            .hero-description {
+                font-size: 17px;
+            }
+
+            .cards,
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 80px 22px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Unveiling History</h1>
-    <p>History, uncovered.</p>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="nav-container">
+
+            <a href="/" class="logo">
+                Unveiling <span>History</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#content">Content</a>
+                <a href="#process">How it works</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="hero-container">
+
+            <div class="eyebrow fade-in">
+                Unveiling History
+            </div>
+
+            <h1 class="fade-in">
+                History,<br>
+                <em>uncovered.</em>
+            </h1>
+
+            <p class="hero-description fade-in">
+                Unveiling History creates and publishes educational history
+                content — from books and audiobooks to short-form digital
+                video.
+            </p>
+
+            <div class="hero-buttons fade-in">
+
+                <a href="#about" class="button button-primary">
+                    Discover Unveiling History
+                </a>
+
+                <a href="#content" class="button button-secondary">
+                    Explore our content
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <div class="section-container">
+
+            <div class="section-label fade-in">
+                Our mission
+            </div>
+
+            <h2 class="section-title fade-in">
+                Making history easier to discover.
+            </h2>
+
+            <p class="section-intro fade-in">
+                History is filled with stories, people and events that
+                continue to shape the world around us. Unveiling History
+                develops educational content designed to make those stories
+                accessible across modern digital formats.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTENT -->
+
+    <section id="content">
+
+        <div class="section-container">
+
+            <div class="section-label fade-in">
+                What we create
+            </div>
+
+            <h2 class="section-title fade-in">
+                One subject. Multiple ways to explore it.
+            </h2>
+
+            <div class="cards">
+
+                <div class="card fade-in">
+
+                    <div class="card-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Books
+                    </h3>
+
+                    <p>
+                        Educational history books created for readers who
+                        want to explore important events, civilizations,
+                        people and ideas in greater depth.
+                    </p>
+
+                </div>
+
+
+                <div class="card fade-in">
+
+                    <div class="card-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Audiobooks
+                    </h3>
+
+                    <p>
+                        History adapted into an accessible listening
+                        experience, allowing stories from the past to be
+                        explored wherever you are.
+                    </p>
+
+                </div>
+
+
+                <div class="card fade-in">
+
+                    <div class="card-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Short-form video
+                    </h3>
+
+                    <p>
+                        Concise educational history content designed for
+                        modern digital platforms and short-form viewing.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROCESS -->
+
+    <section class="process" id="process">
+
+        <div class="section-container">
+
+            <div class="section-label fade-in">
+                The approach
+            </div>
+
+            <h2 class="section-title fade-in">
+                From historical research to digital storytelling.
+            </h2>
+
+            <div class="process-grid">
+
+                <div class="process-step fade-in">
+
+                    <span>01 — RESEARCH</span>
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <p>
+                        Identify historical subjects and gather relevant
+                        source material.
+                    </p>
+
+                </div>
+
+
+                <div class="process-step fade-in">
+
+                    <span>02 — CREATE</span>
+
+                    <h3>
+                        Develop
+                    </h3>
+
+                    <p>
+                        Turn research into structured educational stories
+                        and content.
+                    </p>
+
+                </div>
+
+
+                <div class="process-step fade-in">
+
+                    <span>03 — PRODUCE</span>
+
+                    <h3>
+                        Produce
+                    </h3>
+
+                    <p>
+                        Transform stories into books, audiobooks and
+                        digital media.
+                    </p>
+
+                </div>
+
+
+                <div class="process-step fade-in">
+
+                    <span>04 — PUBLISH</span>
+
+                    <h3>
+                        Share
+                    </h3>
+
+                    <p>
+                        Publish content across digital platforms so more
+                        people can discover history.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <div class="section-container">
+
+            <div class="section-label fade-in">
+                Unveiling History
+            </div>
+
+            <h2 class="section-title fade-in">
+                The past is closer than you think.
+            </h2>
+
+            <p class="fade-in">
+                Explore the stories behind the people, places and events
+                that shaped our world.
+            </p>
+
+            <a href="#about" class="button button-primary fade-in">
+                Explore
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                © <span id="year"></span> Unveiling History
+            </div>
+
+            <div class="footer-links">
+
+                <a href="/terms">
+                    Terms of Service
+                </a>
+
+                <a href="/privacy">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // Automatically update copyright year
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+
+        // Reveal elements as they enter the viewport
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("visible");
+
+                        observer.unobserve(entry.target);
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+        document
+            .querySelectorAll(".fade-in")
+            .forEach((element) => {
+
+                observer.observe(element);
+
+            });
+
+    </script>
+
 </body>
 </html>
